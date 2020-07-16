@@ -1,10 +1,15 @@
 const User = require('../models/User');
+const passport = require('passport');
+const sessionCheck = require('./sessionCheck'); //  Check whether if user logged in or not
+require('../authentication/passport/local');
 
 module.exports.getUserLogin = (req, res, next) => {
+    if (sessionCheck(req, res, next)) return;
     res.render("pages/login");
 }
 
 module.exports.getUserRegister = (req, res, next) => {
+    if (sessionCheck(req, res, next)) return;
     res.render("pages/register");
 }
 
@@ -37,34 +42,25 @@ module.exports.postUserRegister = (req, res, next) => {
             });
             newUser.save()
             .then( () => {
-                res.render("pages/index", { username });
+                res.render("pages/index", { 
+                    username
+                });
             })
             .catch(e => console.log(e));
         }
     });
-
-
 }
 
 module.exports.postUserLogin = (req, res, next) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    const errors = [];
+    passport.authenticate("local", {
+        successRedirect : "/",
+        failureRedirect : "/login",
+        successFlash : true,
+        failureFlash: true
+    })(req, res, next);
+}
 
-    User.findOne({username}).then(user => {
-        if (!user) {
-            errors.push({message : "Username or password doesn't match!"});
-            return res.render("pages/login", { errors });
-        } 
-        if (user) {
-            if (password !== user.password) errors.push({message : "Username or password doesn't match!"});
-
-            if (errors.length > 0) {
-                return res.render("pages/login", { errors });
-            }
-
-            return res.render("pages/index", { username });
-            
-        }
-    }).catch(e => console.log(e));
+module.exports.getUserLogout = (req, res, next) => {
+    req.session.destroy();
+    res.redirect("/");
 }
