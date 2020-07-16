@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
+
 const mongopath = require('./mdbkey.json').dbpath; //Login to your MongoDB database here
 
 const app = express();
