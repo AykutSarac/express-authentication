@@ -52,6 +52,7 @@ module.exports.postUserRegister = (req, res, next) => {
 }
 
 module.exports.postUserLogin = (req, res, next) => {
+    module.exports.ip = req.ip;
     passport.authenticate("local", {
         successRedirect : "/",
         failureRedirect : "/login",

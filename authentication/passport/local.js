@@ -12,6 +12,9 @@ passport.use(new LocalStrategy((username, password, done) => {
 
       if (password === user.password) {
         //  req.user
+        const ip = require('../../controllers/userController').ip;
+        user.loginLogs.push(`[${new Date().toLocaleString()}] - IP: ${ip}`);
+        user.save();
         return done(null, user, "Logged In.");
     } else {
         return done(null, false, "Incorrect password.");

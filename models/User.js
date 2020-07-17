@@ -13,7 +13,8 @@ const UserSchema = new Schema({
         required: true
     },
     joinDate: Date,
-    isAdmin: Boolean
+    isAdmin: Boolean,
+    loginLogs: Array
 }, {
     versionKey: false
 });

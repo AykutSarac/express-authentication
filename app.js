@@ -31,7 +31,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-
 //  Global - Res.locals
 app.use((req, res, next) => {
     
