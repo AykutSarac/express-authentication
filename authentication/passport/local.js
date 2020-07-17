@@ -4,8 +4,8 @@ const User = require('../../models/User');
 
 passport.use(new LocalStrategy((username, password, done) => {
 
-
-    User.findOne({username}, (err, user) => {
+    const usernameRegex = new RegExp(username,"ig")
+    User.findOne({username: usernameRegex}, (err, user) => {
 
       if (err) return done(err, null, "An error occured!");
       if (!user) return done(null, false, "User not found.");

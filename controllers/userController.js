@@ -28,8 +28,9 @@ module.exports.postUserRegister = (req, res, next) => {
         });
     }
 
+    const usernameRegex = new RegExp(username,"ig")
     // Database check for user & registration
-    User.findOne({username}).then(user => {
+    User.findOne({username: usernameRegex}).then(user => {
         if (user) {
             errors.push({message : "Username already in use!"});
             return res.render("pages/register", { errors });
