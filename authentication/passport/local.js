@@ -3,6 +3,8 @@ const passport = require('passport');
 const User = require('../../models/User');
 
 passport.use(new LocalStrategy((username, password, done) => {
+
+
     User.findOne({username}, (err, user) => {
 
       if (err) return done(err, null, "An error occured!");
@@ -15,6 +17,7 @@ passport.use(new LocalStrategy((username, password, done) => {
         return done(null, false, "Incorrect password.");
     }
     });
+
 }));
 
 passport.serializeUser(function(user, done) {

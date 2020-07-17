@@ -4,12 +4,12 @@ const sessionCheck = require('./sessionCheck'); //  Check whether if user logged
 require('../authentication/passport/local');
 
 module.exports.getUserLogin = (req, res, next) => {
-    if (sessionCheck(req, res, next)) return;
+    if (sessionCheck(req, res, next).status) return res.redirect("/");
     res.render("pages/login");
 }
 
 module.exports.getUserRegister = (req, res, next) => {
-    if (sessionCheck(req, res, next)) return;
+    if (sessionCheck(req, res, next).status) return res.redirect("/");
     res.render("pages/register");
 }
 
@@ -38,13 +38,12 @@ module.exports.postUserRegister = (req, res, next) => {
                 username,
                 password,
                 joinDate: new Date(),
-                userType: 1
+                isAdmin: false
             });
             newUser.save()
             .then( () => {
-                res.render("pages/index", { 
-                    username
-                });
+                req.flash("registerSuccess", "Registered successfully!");
+                res.redirect("/login");
             })
             .catch(e => console.log(e));
         }
@@ -63,4 +62,9 @@ module.exports.postUserLogin = (req, res, next) => {
 module.exports.getUserLogout = (req, res, next) => {
     req.session.destroy();
     res.redirect("/");
+}
+
+module.exports.getProfile = (req, res, next) => {
+    if (!sessionCheck(req, res, next).status) return res.redirect("/login");
+    res.render("pages/profile");
 }

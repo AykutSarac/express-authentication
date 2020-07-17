@@ -1,0 +1,14 @@
+<div class="jumbotron">
+<ul>
+    <li><b>Username: </b>{{user.username}}</li>
+    <li><b>Join Date: </b>{{user.joinDate}}</li>
+    <li><b>User Type: </b>
+        {{#if user.isAdmin}}
+        Admin
+        {{else}}
+        User
+        {{/if}}
+    </li>
+</ul>
+</div>
+

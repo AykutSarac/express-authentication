@@ -1,7 +1,9 @@
 module.exports = (req, res, next) => {
     if (req.user) {
-        res.redirect("/");
-        return true;
+        return {
+            status: true,
+            type: req.user.type
+        }
     } 
     return false;
 }

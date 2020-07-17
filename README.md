@@ -5,8 +5,9 @@ Project for authentication system using express with session and database connec
 # Database Connection
 
    - Change 
-  ``
-**const mongopath = require('./mdbkey.json').dbpath;**
+   
+``
+const mongopath = require('./mdbkey.json').dbpath;
 ``
 at app.js to your own mongo database.
  
@@ -20,5 +21,4 @@ node app.js
 MIT
 
 # Contact
----
-- Aykut Saraç - Instagram([@aykutsarac](https://www.instagram.com/aykut.sarac)) - (aykutsarac0@gmail.com)
+- Aykut Saraç - ([@aykut.sarac](https://www.instagram.com/aykut.sarac)) - (aykutsarac0@gmail.com)

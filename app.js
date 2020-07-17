@@ -4,6 +4,8 @@ const bodyparser = require('body-parser');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
+const _handlebars = require('handlebars');
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 const passport = require('passport');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
@@ -35,6 +37,7 @@ app.use((req, res, next) => {
     
     res.locals.user = req.user;
 
+    res.locals.registerSuccess = req.flash("registerSuccess");
     res.locals.passportFailure = req.flash("error");
     res.locals.passportSuccess = req.flash("success");
     next();
@@ -52,7 +55,10 @@ mongoose.connect(mongopath, {
 });
 
 //  Set view engine to Handlebars
-app.engine('handlebars', exphbs({defaultLayout: 'mainLayout'}));
+app.engine('handlebars', exphbs({
+    defaultLayout: 'mainLayout',
+    handlebars: allowInsecurePrototypeAccess(_handlebars)
+}));
 app.set('view engine', 'handlebars');
 
 
