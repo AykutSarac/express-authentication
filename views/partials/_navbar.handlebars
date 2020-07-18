@@ -1,42 +1,41 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Express</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-
-      {{#unless user}}
-
-      <li class="nav-item active">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/register">Register</a>
-      </li>
-
-      {{else}}
-
+  <!-- TOP HEADER -->
+<header class="main-header bg-dark">
+<div class="top-header">
+  <div class="container">
+    <div class="logo">
+      <a href="/"><h1>AykutSarac</h1></a>
+    </div>
+    <ul class="top-social-menu">
+      <li><a href="https://www.github.com/AykutSarac" target="#"><i class="fab fa-github"></i></a></li>
+      <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+      <li><a href="https://instagram.com/aykut.sarac" target="#"><i class="fab fa-instagram"></i></a></li>
     </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item active dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{#each user}} {{username}} {{/each}}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/profile">Profile</a>
-          <a class="dropdown-item" href="/settings">Settings</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/logout">Log Out</a>
-        </div>
-      </li>
-    </ul>
+
+    {{#unless user}}
+
+    <div class="login-area">
+      <a href="/login" class="btn btn-primary">Login<span><i class="fas fa-sign-in-alt"></i></span></a>
+      <a href="/register" class="btn">Sign Up<span><i class="fas fa-user-plus"></i></span></a>
+    </div>
+
+    {{else}}
+
+    <div class="login-area btn">
+      <div class="dropdown">
+      <button class="dropbtn btn"><a href="/profile">{{user.username}}</a></button>
+      <div class="dropdown-content">
+        <a href="/profile" class="btn btn-primary">Profile<span><i class="fas fa-sign-in-alt"></i></span></a>
+        <a href="/logout" class="btn btn-primary">Log Out<span><i class="fas fa-sign-in-alt"></i></span></a>
+      </div>
+    </div>
+    </div>
+
 
     {{/unless}}
 
+
   </div>
-</nav>
+</div>
+</header>
+

@@ -1,0 +1,198 @@
+/** FONTS **/
+@import url('https://fonts.googleapis.com/css2?family=Mukta&family=Mulish:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+/** VARIABLES **/
+
+$primary-color: rgb(180, 18, 18);
+$secondary-color: rgb(31, 30, 30);
+$light-color: rgb(241, 223, 223);
+
+$primary-font: 'Mukta', sans-serif;
+$secondary-fonts: 'Mulish', sans-serif;
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 2rem;
+}
+
+
+
+ul {
+    list-style: none;
+}
+
+i {
+    font-size: 3rem;
+}
+
+a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: $primary-font;
+    color: $light-color;
+}
+
+button[type="submit"] {
+    background-color: rgb(78, 78, 238);
+}
+
+
+
+
+.container {
+    max-width: 114rem;
+    margin: 0 auto;
+    width: 100%;
+
+    input {
+        font-size: 1.8rem;
+    }
+
+    .card-header {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        font-size: 1.8rem;
+    }
+}
+
+.login-area {
+    span {
+        display: none;
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            color: rgb(241, 223, 223);
+        }
+    }
+}
+
+/* Dropdown Button */
+.dropbtn {
+    outline: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    margin-top: 0.2rem;
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+
+/** GENERAL SETTINGS **/
+
+.main-header {
+
+    .btn {
+        font-family: $secondary-fonts;
+        font-size: 2.6rem;
+        border-radius: 5%;
+        outline: none;
+        transition: all .5s;
+        border: none;
+        background-color: transparent;
+        color: $light-color;
+    
+        &:hover {
+            background-color: darken($color: $secondary-color, $amount: 30%);
+            color: $light-color;
+        }
+    
+        &-primary {
+            color: $light-color;
+            background-color: $primary-color;
+    
+            &:hover {
+                color: $primary-color;
+                background-color: $light-color;
+            }
+        }
+    }
+
+    
+    .top-header {
+        border-bottom: 4px solid red;
+
+        .logo {
+
+            a {
+                text-decoration: none;
+            }
+
+            h1 {
+                font-size: 5rem;
+                color: $primary-color;
+                font-family: 'Bebas Neue', cursive;
+            }
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .top-social-menu {
+                display: flex;
+
+                li {
+                    margin: 0 1rem;
+                    
+                    a {
+                        &:hover {
+                            color: lightgreen;
+                            transition: all .5s;
+                        }
+
+
+                    }
+                }
+            }
+
+            
+        }
+        
+        
+    }
+}

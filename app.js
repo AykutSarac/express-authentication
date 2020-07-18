@@ -9,11 +9,14 @@ const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-acce
 const passport = require('passport');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 const mongopath = require('./mdbkey.json').dbpath; //Login to your MongoDB database here
 
 const app = express();
 const PORT = 5000 || process.env.PORT;
+
+
 
 //  Flash Middlewares
 app.use(cookieParser("aykutboss"));
@@ -24,6 +27,9 @@ app.use(session({
     secret: "aykutboss"
 }));
 app.use(flash());
+
+//  Define static directory
+app.use(express.static('public'));
 
 
 //  Passport
@@ -43,13 +49,14 @@ app.use((req, res, next) => {
 });
 
 
+
 //  Mongoose Connection
 mongoose.connect(mongopath, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true
 }, err => {
-    if (err) console.error(err);
+    if (err) return console.error(err);
     console.log("Connected to Database.");
 });
 

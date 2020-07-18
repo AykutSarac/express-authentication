@@ -1,0 +1,178 @@
+/** FONTS **/
+@import url("https://fonts.googleapis.com/css2?family=Mukta&family=Mulish:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+/** VARIABLES **/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+i {
+  font-size: 3rem;
+}
+
+a {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: "Mukta", sans-serif;
+  color: #f1dfdf;
+}
+
+button[type="submit"] {
+  background-color: #4e4eee;
+}
+
+.container {
+  max-width: 114rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.container input {
+  font-size: 1.8rem;
+}
+
+.container .card-header {
+  font-size: 2rem;
+}
+
+.container .btn {
+  font-size: 1.8rem;
+}
+
+.login-area span {
+  display: none;
+}
+
+.login-area a {
+  text-decoration: none;
+}
+
+.login-area a:hover {
+  color: #f1dfdf;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  outline: none;
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  margin-top: 0.2rem;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/** GENERAL SETTINGS **/
+.main-header .btn {
+  font-family: "Mulish", sans-serif;
+  font-size: 2.6rem;
+  border-radius: 5%;
+  outline: none;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  border: none;
+  background-color: transparent;
+  color: #f1dfdf;
+}
+
+.main-header .btn:hover {
+  background-color: black;
+  color: #f1dfdf;
+}
+
+.main-header .btn-primary {
+  color: #f1dfdf;
+  background-color: #b41212;
+}
+
+.main-header .btn-primary:hover {
+  color: #b41212;
+  background-color: #f1dfdf;
+}
+
+.main-header .top-header {
+  border-bottom: 4px solid red;
+}
+
+.main-header .top-header .logo a {
+  text-decoration: none;
+}
+
+.main-header .top-header .logo h1 {
+  font-size: 5rem;
+  color: #b41212;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.main-header .top-header .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main-header .top-header .container .top-social-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-header .top-header .container .top-social-menu li {
+  margin: 0 1rem;
+}
+
+.main-header .top-header .container .top-social-menu li a:hover {
+  color: lightgreen;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+/*# sourceMappingURL=style.css.map */
