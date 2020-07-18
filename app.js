@@ -9,7 +9,6 @@ const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-acce
 const passport = require('passport');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
-const path = require('path');
 
 const mongopath = require('./mdbkey.json').dbpath; //Login to your MongoDB database here
 
